@@ -1,4 +1,4 @@
-<!-- css/style.css -->
+<!-- Updated css/style.css -->
 <style>
 body {
   margin: 0;
@@ -45,6 +45,7 @@ nav a {
   text-transform: uppercase;
   font-weight: bold;
   transition: color 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 nav a:hover {
@@ -70,14 +71,14 @@ main {
 .hero h1 {
   font-size: 48px;
   margin: 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .hero p {
   font-size: 18px;
   margin: 10px 0 0;
   max-width: 600px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5), 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .portfolio, .archive, .about, .contact {
@@ -85,15 +86,22 @@ main {
   text-align: center;
 }
 
+h2 {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
   gap: 20px;
+  justify-items: center;
 }
 
 .grid-item {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 560px;
 }
 
 .grid-item img, .grid-item iframe {
@@ -117,6 +125,7 @@ main {
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .grid-item:hover .caption {
@@ -148,6 +157,7 @@ main {
   color: #ffffff;
   font-size: 40px;
   cursor: pointer;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .masonry {
@@ -184,6 +194,7 @@ main {
 .about-content p {
   max-width: 600px;
   text-align: left;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .contact-content {
@@ -202,12 +213,14 @@ main {
 
 .contact-content p {
   margin: 10px 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .contact-content a {
   color: #ffffff;
   text-decoration: none;
   transition: text-decoration 0.3s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .contact-content a:hover {
@@ -216,7 +229,7 @@ main {
 
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
   .masonry {
     column-count: 2;
@@ -235,29 +248,3 @@ main {
   }
 }
 </style>
-
-<!-- js/script.js -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.querySelector('.lightbox-content');
-  const closeBtn = document.querySelector('.close');
-
-  document.querySelectorAll('.grid-item img').forEach(img => {
-    img.addEventListener('click', function() {
-      lightboxImg.src = this.src;
-      lightbox.style.display = 'flex';
-    });
-  });
-
-  closeBtn.addEventListener('click', function() {
-    lightbox.style.display = 'none';
-  });
-
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
-    }
-  });
-});
-</script>
