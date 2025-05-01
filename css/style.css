@@ -57,7 +57,7 @@ main {
 
 .hero {
   height: 100vh;
-  background-image: url('images/car-with-smoke.jpg');
+  background-image: url('images/trufeo.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -186,6 +186,24 @@ main {
   text-align: left;
 }
 
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line {
+  width: 100%;
+  max-width: 600px;
+  height: 1px;
+  background-color: #cccccc;
+  margin: 20px 0;
+}
+
+.contact-content p {
+  margin: 10px 0;
+}
+
 .contact-content a {
   color: #ffffff;
   text-decoration: none;
@@ -217,3 +235,29 @@ main {
   }
 }
 </style>
+
+<!-- js/script.js -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-content');
+  const closeBtn = document.querySelector('.close');
+
+  document.querySelectorAll('.grid-item img').forEach(img => {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', function() {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+});
+</script>
